@@ -1,0 +1,22 @@
+{% extends 'weather_app/base.html' %}
+{% block content %}
+
+<h1 class="display-2">weather_app</h1>
+<hr>
+{% for city_weather in weather_data %}
+<div class="card" style="width: 18rem; float:left;">
+    <div class="card-header">
+        <div class="card-title">
+            <h3>{{city_weather.city}}</h3>
+        </div>
+
+    </div>
+    <img src="http://openweathermap.org/img/w/{{city_weather.icon}}.png" width="100px" alt="" class="card-image">
+    <div class="card-body">
+
+        <p class="badge bg-danger text-black"><strong>Temprature: </strong>{{city_weather.temperature}}</p>
+        <p>{{city_weather.description}}</p>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
